@@ -12,12 +12,18 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
     this.player2.setOpponent(player1);
 }
 
-//public void checkWin(int player1Score, int player2Score){
-//    if (player1Score>player2Score){
-//        player1.send("win");
-//        player2.send("lose");
-//    }
-//}
+public void checkWin(int player1Score, int player2Score){
+    if (player1Score>player2Score){
+        player1.send("win");
+        player2.send("lose");
+    } else if (player2Score>player1Score){
+        player1.send("lose");
+        player2.send("win");
+    } else {
+        player1.send("equal");
+        player2.send("equal");
+    }
+}
 
 
 
@@ -43,14 +49,17 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
             }
             System.out.println("player2 after calculation: " + player2.getScore());
 
-            player1.send("player1 testing testing");
-            System.out.println("sent to player1 testing testing");
-            player2.send("player2 testing testing");
-            System.out.println("sent to player2 testing testing");
-            player1.send("player1 2nd time");
-            System.out.println("sent to player1 2nd time");
-            player2.send("player2 2nd time");
-            System.out.println("sent to player2 2nd time");
+            checkWin(player1.getScore(), player2.getScore());
+
+//            player1.send("player1 testing testing");
+//            System.out.println("sent to player1 testing testing");
+//            player2.send("player2 testing testing");
+//            System.out.println("sent to player2 testing testing");
+//            player1.send("player1 2nd time");
+//            System.out.println("sent to player1 2nd time");
+//            player2.send("player2 2nd time");
+//            System.out.println("sent to player2 2nd time");
+
             // Handle data received from player2
 
             // Perform game logic based on received data
