@@ -12,8 +12,6 @@ public class Serversideplayer {
     BufferedReader input;
     PrintWriter output;
 
-    int score;
-
     /**
      * Constructs a handler thread for a given socket and mark
      * initializes the stream fields, displays the first two
