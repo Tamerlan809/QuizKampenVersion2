@@ -31,17 +31,21 @@ public class Client { // Clientarkitektur och GUI
     private PrintWriter out;
 
 
-    public Client(String ServerAdress, int port) throws IOException {
-        socket = new Socket(ServerAdress, Client.port);
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        out = new PrintWriter(socket.getOutputStream(), true);
+    public Client(String ServerAdress, int port) {
+        try {
+            socket = new Socket(ServerAdress, Client.port);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream(), true);
 
-        //welcomeFrame();
-        startANewGame();
+            welcomeFrame();
+            Thread.sleep(1500);
+            startANewGame();
+
+        } catch (IOException | InterruptedException e){
+            e.printStackTrace();
+        }
 
     }
-
-
     //// GUI.......
 
     public void welcomeFrame() {
@@ -51,6 +55,14 @@ public class Client { // Clientarkitektur och GUI
         welcomeFrame.setLayout(null);
         welcomeFrame.setResizable(false);
         welcomeFrame.setTitle("Quizkampen");
+
+        welcomeTextField.setBounds(0,0,650,50);
+        welcomeTextField.setBackground(new Color(25,25,25));
+        welcomeTextField.setForeground(new Color(25,255,0));
+        welcomeTextField.setFont(new Font("Ink Free",Font.BOLD,30));
+        welcomeTextField.setBorder(BorderFactory.createBevelBorder(1));
+        welcomeTextField.setHorizontalAlignment(JTextField.CENTER);
+        welcomeTextField.setEditable(false);
 
         welcomeFrame.setVisible(true);
         welcomeFrame.add(welcomeTextField);
@@ -146,6 +158,7 @@ public class Client { // Clientarkitektur och GUI
         frame.setResizable(false);
         frame.setTitle("Quizkampen");
 
+
         buttonPlayAFriend.setBounds(100, 400, 600, 200);
         buttonPlayAFriend.setFont(new Font("MV Boli", Font.BOLD, 35));
         buttonPlayAFriend.setFocusable(false);
@@ -156,7 +169,7 @@ public class Client { // Clientarkitektur och GUI
         frame.add(buttonPlayAFriend);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String ip = "127.0.0.1";
         int port = 43972;
         Client c = new Client(ip, port);
