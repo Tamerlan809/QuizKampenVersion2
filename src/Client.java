@@ -38,8 +38,11 @@ public class Client { // Clientarkitektur och GUI
             out = new PrintWriter(socket.getOutputStream(), true);
 
             welcomeFrame();
+            //frame.setContentPane(welcomPanel)
             Thread.sleep(1500);
             startANewGame();
+            //frame.setContentPane(startNewGamePanel)
+            //frame.revalidate()
 
         } catch (IOException | InterruptedException e){
             e.printStackTrace();
@@ -49,12 +52,13 @@ public class Client { // Clientarkitektur och GUI
     //// GUI.......
 
     public void welcomeFrame() {
-        welcomeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        welcomeFrame.setSize(800, 650);
-        welcomeFrame.getContentPane().setBackground(new Color(50, 50, 50));
-        welcomeFrame.setLayout(null);
-        welcomeFrame.setResizable(false);
-        welcomeFrame.setTitle("Quizkampen");
+        //welcomePanel
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 650);
+        frame.getContentPane().setBackground(new Color(50, 50, 50));
+        frame.setLayout(null);
+        frame.setResizable(false);
+        frame.setTitle("Quizkampen");
 
         welcomeTextField.setBounds(0,0,650,50);
         welcomeTextField.setBackground(new Color(25,25,25));
@@ -64,11 +68,12 @@ public class Client { // Clientarkitektur och GUI
         welcomeTextField.setHorizontalAlignment(JTextField.CENTER);
         welcomeTextField.setEditable(false);
 
-        welcomeFrame.setVisible(true);
-        welcomeFrame.add(welcomeTextField);
+        frame.setVisible(true);
+        frame.add(welcomeTextField);
     }
 
     public void startANewGame() {
+        //startNewGamePanel
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 650);
         frame.getContentPane().setBackground(new Color(50, 50, 50));
