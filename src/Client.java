@@ -22,6 +22,8 @@ public class Client { // Clientarkitektur och GUI
     JButton buttonAnswerC = new JButton("C;vit");
     JButton buttonAnswerD = new JButton("D;blå");
 
+    JTextField forRecTestMsg = new JTextField("testprinting...");
+
     /// GUI ............
     private static int port = 43972;
     private Socket socket;
@@ -62,6 +64,8 @@ public class Client { // Clientarkitektur och GUI
         frame.setResizable(false);
         frame.setTitle("Quizkampen");
 
+
+
         buttonAnswerA.setBounds(0, 100, 500, 100);
         buttonAnswerA.setFont(new Font("MV Boli", Font.BOLD, 35));
         buttonAnswerA.setFocusable(false);
@@ -78,6 +82,14 @@ public class Client { // Clientarkitektur och GUI
         buttonAnswerD.setFont(new Font("MV Boli", Font.BOLD, 35));
         buttonAnswerD.setFocusable(false);
 
+        forRecTestMsg.setBounds(0,500,650,50);
+        forRecTestMsg.setBackground(new Color(25,25,25));
+        forRecTestMsg.setForeground(new Color(25,255,0));
+        forRecTestMsg.setFont(new Font("Ink Free",Font.BOLD,30));
+        forRecTestMsg.setBorder(BorderFactory.createBevelBorder(1));
+        forRecTestMsg.setHorizontalAlignment(JTextField.CENTER);
+        forRecTestMsg.setEditable(false);
+
         question.setForeground(Color.white);
         question.setText("Vilken färg har äpple?");
         question.setSize(200, 200);
@@ -91,6 +103,7 @@ public class Client { // Clientarkitektur och GUI
         frame.add(buttonAnswerB);
         frame.add(buttonAnswerC);
         frame.add(buttonAnswerD);
+        frame.add(forRecTestMsg);
 
         buttonAnswerA.addActionListener(e -> {
 

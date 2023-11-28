@@ -12,7 +12,12 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
     this.player2.setOpponent(player1);
 }
 
-
+//public void checkWin(int player1Score, int player2Score){
+//    if (player1Score>player2Score){
+//        player1.send("win");
+//        player2.send("lose");
+//    }
+//}
 
 
 
@@ -37,6 +42,11 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
                 player2.setScore(player2.getScore()+1);
             }
             System.out.println("player2 after calculation: " + player2.getScore());
+
+            player1.send("player1 testing testing");
+            System.out.println("sent to player1 testing testing");
+            player2.send("player2 testing testing");
+            System.out.println("sent to player2 testing testing");
             // Handle data received from player2
 
             // Perform game logic based on received data
