@@ -6,11 +6,6 @@ import java.net.Socket;
 
 public class Serversideplayer {
 
-
-
-
-
-
     char mark;
     Serversideplayer opponent;
     Socket socket;
@@ -26,8 +21,7 @@ public class Serversideplayer {
         this.socket = socket;
         this.mark = mark;
         try {
-            input = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
+            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException e) {
             System.out.println("Player died: " + e);
@@ -69,13 +63,4 @@ Receives data from client
     public Serversideplayer getOpponent() {
         return opponent;
     }
-
-
-
-
-
-
-
-
-
 }

@@ -18,15 +18,20 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
 
     @Override
     public void run() {
-        player1.send("WELCOME " + player1.mark);
-        player1.send("MESSAGE Waiting for opponent to connect");
+        // Your game logic here
 
-        player2.send("WELCOME " + player2.mark);
-        player2.send("MESSAGE All players connected");
+        while (true) {
+            String dataFromPlayer1 = player1.receive();
+            // Handle data received from player1
 
-        player1.send("MESSAGE Your move");
+            String dataFromPlayer2 = player2.receive();
+            // Handle data received from player2
 
-        String command;
-        currentPlayer = player1;
+            // Perform game logic based on received data
+
+            // Example:
+            // If dataFromPlayer1 indicates a move, process the move
+            // If dataFromPlayer2 is a response or another move, process accordingly
+        }
     }
 }
