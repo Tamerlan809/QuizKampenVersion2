@@ -124,6 +124,20 @@ public class Client { // Clientarkitektur och GUI
 
     }
 
+    public void play(){
+        String temp;
+        try {
+            while (true){
+                if ((temp = in.readLine()) != null){
+                    System.out.println(temp);
+                    forRecTestMsg.setText(temp);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void playAFriend() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 650);
@@ -146,6 +160,7 @@ public class Client { // Clientarkitektur och GUI
         String ip = "127.0.0.1";
         int port = 43972;
         Client c = new Client(ip, port);
+        c.play();
 
     }
 

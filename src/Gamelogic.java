@@ -47,6 +47,10 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
             System.out.println("sent to player1 testing testing");
             player2.send("player2 testing testing");
             System.out.println("sent to player2 testing testing");
+            player1.send("player1 2nd time");
+            System.out.println("sent to player1 2nd time");
+            player2.send("player2 2nd time");
+            System.out.println("sent to player2 2nd time");
             // Handle data received from player2
 
             // Perform game logic based on received data
