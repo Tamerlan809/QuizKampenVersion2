@@ -23,10 +23,20 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
         while (true) {
             String dataFromPlayer1 = player1.receive();
             System.out.println("player1 " + dataFromPlayer1);
+            if (dataFromPlayer1.equals("Correct")){
+                System.out.println("player1 before calculation: " + player1.getScore());
+                player1.setScore(player1.getScore()+1);
+            }
+            System.out.println("player1 after calculation: " + player1.getScore());
             // Handle data received from player1
 
             String dataFromPlayer2 = player2.receive();
             System.out.println("player2 " + dataFromPlayer2);
+            if (dataFromPlayer2.equals("Correct")){
+                System.out.println("player2 before calculation: " + player2.getScore());
+                player2.setScore(player2.getScore()+1);
+            }
+            System.out.println("player2 after calculation: " + player2.getScore());
             // Handle data received from player2
 
             // Perform game logic based on received data

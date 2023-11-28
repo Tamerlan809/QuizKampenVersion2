@@ -12,6 +12,9 @@ public class Serversideplayer {
     BufferedReader input;
     PrintWriter output;
 
+
+    int score = 0;
+
     /**
      * Constructs a handler thread for a given socket and mark
      * initializes the stream fields, displays the first two
@@ -62,5 +65,14 @@ Receives data from client
      */
     public Serversideplayer getOpponent() {
         return opponent;
+    }
+
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
