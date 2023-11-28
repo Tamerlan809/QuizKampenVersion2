@@ -22,9 +22,11 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
 
         while (true) {
             String dataFromPlayer1 = player1.receive();
+            System.out.println(dataFromPlayer1);
             // Handle data received from player1
 
             String dataFromPlayer2 = player2.receive();
+            System.out.println(dataFromPlayer2);
             // Handle data received from player2
 
             // Perform game logic based on received data

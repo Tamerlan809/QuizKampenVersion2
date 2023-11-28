@@ -93,13 +93,15 @@ public class Client { // Clientarkitektur och GUI
         frame.add(buttonAnswerD);
 
         buttonAnswerA.addActionListener(e -> {
-            System.out.println("Button A clicked - Correct answer!");
+
             out.println("Correct"); // Send 'Correct' to the server for the correct answer
+            System.out.println("Button A clicked - Correct answer!");
         });
 
         ActionListener incorrectAnswerListener = e -> {
-            System.out.println("Incorrect answer!");
+
             out.println("Incorrect"); // Send 'Incorrect' to the server for incorrect answers
+            System.out.println("Incorrect answer!");
         };
 
         // Assign the incorrectAnswerListener to buttons B, C, D
