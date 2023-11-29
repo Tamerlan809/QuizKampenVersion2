@@ -8,7 +8,7 @@ public class Gamelogic extends Thread { // I denna klass hanterar vi all logik i
 
     String[] qList = new String[]{
             "QHow are you?,Yes,No,Dont't know,n/a",
-            "QWhat's today's date?29,30,21,56"
+            "QWhat's today's date?,29,30,21,56"
     };
 
 public Gamelogic(Serversideplayer player1, Serversideplayer player2){
@@ -62,7 +62,6 @@ public void checkWin(int player1Score, int player2Score){
                 player1.send(qList[1]);
                 System.out.println(qList[1]);
                 player2.send(qList[1]);
-                countQ++;
             }
 
 

@@ -200,18 +200,20 @@ public class Client { // Clientarkitektur och GUI
                     //win/lose/equal    S  xxxx
                     //if (temp2.charAT(0)==Q)
                     //perform actions to display Q+A to question page
-                    if (temp2.charAt(0)=='Q'){  //Q stands for Question and Answer
-                        String[] indata = temp2.substring(1).split(",");
+                    for (int i = 0; i < 2; i++) {
+                        if (temp2.charAt(0)=='Q'){  //Q stands for Question and Answer
+                            String[] indata = temp2.substring(1).split(",");
 //                        System.out.println(indata[0]);
 //                        System.out.println(indata[1]);
 //                        System.out.println(indata[2]);
 //                        System.out.println(indata[3]);
 //                        System.out.println(indata[4]);
-                        question.setText(indata[0]);
-                        buttonAnswerA.setText(indata[1]);
-                        buttonAnswerB.setText(indata[2]);
-                        buttonAnswerC.setText(indata[3]);
-                        buttonAnswerD.setText(indata[4]);
+                            question.setText(indata[0]);
+                            buttonAnswerA.setText(indata[1]);
+                            buttonAnswerB.setText(indata[2]);
+                            buttonAnswerC.setText(indata[3]);
+                            buttonAnswerD.setText(indata[4]);
+                        }
                     }
                     //else if (temp2.charAt(0)==S)
                     //perform actions under to score page
