@@ -5,14 +5,11 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Serversideplayer {
-
     char mark;
     Serversideplayer opponent;
     Socket socket;
     BufferedReader input;
     PrintWriter output;
-
-
     int score = 0;
 
     /**
@@ -30,11 +27,9 @@ public class Serversideplayer {
             System.out.println("Player died: " + e);
         }
     }
-
         /*
         Sends data to client
          */
-
     public void send(String mess){
         output.println(mess);
     }
@@ -42,7 +37,6 @@ public class Serversideplayer {
 /*
 Receives data from client
  */
-
     public String receive()  {
         try {
             return input.readLine();
@@ -66,7 +60,6 @@ Receives data from client
     public Serversideplayer getOpponent() {
         return opponent;
     }
-
 
     public int getScore() {
         return score;
