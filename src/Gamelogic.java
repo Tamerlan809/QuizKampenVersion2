@@ -7,8 +7,8 @@ public class Gamelogic extends Thread { // I denna klass hanterar vi all logik i
     int countQ = 1;
 
     String[] qList = new String[]{
-            "QHow are you?,Yes,No,Dont't know,n/a",
-            "QWhat's today's date?,29,30,21,56"
+            "QVad heter huvudstaden i Sverige?,Stockholm,London,Berlin,Kairo",
+            "QVilket land har flest invånare?,Kina,Indien,Pakistan,Ryssland"
     };
 
 public Gamelogic(Serversideplayer player1, Serversideplayer player2){
@@ -36,22 +36,8 @@ public void checkWin(int player1Score, int player2Score){
 
     @Override
     public void run() {
-        // Your game logic here
 
-        //int counter
-        //if counter=1
-        //send(questionList[0])
-        //counter++;
-
-        //if counter=2
-        //send(questionList[1])
-        //counter++;
-
-        //String[] quesationList = index0 Q1, index1 Q2, index ....
-
-        while (true) {
-//            player1.send("QHow are you?,Yes,No,Dont't know,n/a");
-//            player2.send("QHow are you?,Yes,No,Dont't know,n/a");
+    while (true) {
 
             if (countQ==1){
                 player1.send(qList[0]);
@@ -76,7 +62,7 @@ public void checkWin(int player1Score, int player2Score){
                 player1.setScore(player1.getScore()+1);
             }
             System.out.println("player1 after calculation: " + player1.getScore());
-            // Handle data received from player1
+
 
             String dataFromPlayer2 = player2.receive();
             System.out.println("player2 " + dataFromPlayer2);
@@ -87,23 +73,6 @@ public void checkWin(int player1Score, int player2Score){
             System.out.println("player2 after calculation: " + player2.getScore());
 
 
-
-//            player1.send("player1 testing testing");
-//            System.out.println("sent to player1 testing testing");
-//            player2.send("player2 testing testing");
-//            System.out.println("sent to player2 testing testing");
-//            player1.send("player1 2nd time");
-//            System.out.println("sent to player1 2nd time");
-//            player2.send("player2 2nd time");
-//            System.out.println("sent to player2 2nd time");
-
-            // Handle data received from player2
-
-            // Perform game logic based on received data
-
-            // Example:
-            // If dataFromPlayer1 indicates a move, process the move
-            // If dataFromPlayer2 is a response or another move, process accordingly
         }
     }
 }

@@ -12,10 +12,7 @@ public class Client { // Clientarkitektur och GUI
 
 
     JFrame frame = new JFrame("");
-    JButton buttonStartANewGame = new JButton();
-    JButton buttonPlayAFriend = new JButton();
     JLabel question = new JLabel();
-    JFrame welcomeFrame = new JFrame();
     JTextField welcomeTextField = new JTextField("Hej och välkommen");
 
     JTextField scoreTextField = new JTextField();
@@ -53,16 +50,6 @@ public class Client { // Clientarkitektur och GUI
         }
 
     }
-    //// GUI.......
-
-
-    //main frame
-    //public JPanel welcomPanel
-    //frame.set(welcomePanel)
-    //public JPanel frågaPanel
-    //frame.remove(welcomePanel)
-    //frame.set(frågaPanel)
-    //frame.revalidate()
 
     public JFrame frameTemplate(){
         JFrame temp = new JFrame();
@@ -80,13 +67,6 @@ public class Client { // Clientarkitektur och GUI
 
     public JPanel welcomePanel() {
         JPanel temp = new JPanel();
-        //retrun Jpanel welcomePanel
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setSize(800, 650);
-//        frame.getContentPane().setBackground(new Color(50, 50, 50));
-//        frame.setLayout(null);
-//        frame.setResizable(false);
-//        frame.setTitle("Quizkampen");
 
         temp.add(welcomeTextField);
 
@@ -98,30 +78,19 @@ public class Client { // Clientarkitektur och GUI
         welcomeTextField.setHorizontalAlignment(JTextField.CENTER);
         welcomeTextField.setEditable(false);
 
-//        frame.setVisible(true);
-
         return temp;
     }
 
     public JPanel startNewGamePanel() {
         JPanel temp = new JPanel();
         temp.setLayout(new GridLayout(6,1));
-        //startNewGamePanel
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setSize(800, 650);
-//        frame.getContentPane().setBackground(new Color(50, 50, 50));
-//        frame.setLayout(null);
-//        frame.setResizable(false);
-//        frame.setTitle("Quizkampen");
-
-//        frame.setVisible(true);
 
         temp.add(question);
         temp.add(buttonAnswerA);
         temp.add(buttonAnswerB);
         temp.add(buttonAnswerC);
         temp.add(buttonAnswerD);
-//        temp.add(forRecTestMsg);
+
 
 
         buttonAnswerA.setBounds(0, 100, 500, 100);
@@ -149,7 +118,6 @@ public class Client { // Clientarkitektur och GUI
         forRecTestMsg.setEditable(false);
 
         question.setForeground(Color.black);
-//        question.setText("Vilken färg har äpple?");
         question.setSize(200, 200);
         question.setBounds(0, 0, 500, 100);
         question.setFont(new Font("MV Boli", Font.BOLD, 35));
@@ -196,18 +164,9 @@ public class Client { // Clientarkitektur och GUI
         try {
             while (true){
                 if ((temp2 = in.readLine()) != null){
-                    //question+answers  Q xxxxx
-                    //win/lose/equal    S  xxxx
-                    //if (temp2.charAT(0)==Q)
-                    //perform actions to display Q+A to question page
                     for (int i = 0; i < 2; i++) {
                         if (temp2.charAt(0)=='Q'){  //Q stands for Question and Answer
                             String[] indata = temp2.substring(1).split(",");
-//                        System.out.println(indata[0]);
-//                        System.out.println(indata[1]);
-//                        System.out.println(indata[2]);
-//                        System.out.println(indata[3]);
-//                        System.out.println(indata[4]);
                             question.setText(indata[0]);
                             buttonAnswerA.setText(indata[1]);
                             buttonAnswerB.setText(indata[2]);
@@ -215,8 +174,7 @@ public class Client { // Clientarkitektur och GUI
                             buttonAnswerD.setText(indata[4]);
                         }
                     }
-                    //else if (temp2.charAt(0)==S)
-                    //perform actions under to score page
+
                     if (temp2.charAt(0)=='S'){ //S stands for score
                         System.out.println(temp2);
                         startNewGamePanel().setVisible(false);
@@ -232,24 +190,6 @@ public class Client { // Clientarkitektur och GUI
         }
     }
 
-    public void playAFriend() {
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 650);
-        frame.getContentPane().setBackground(new Color(50, 50, 50));
-        frame.setLayout(null);
-        frame.setResizable(false);
-        frame.setTitle("Quizkampen");
-
-
-        buttonPlayAFriend.setBounds(100, 400, 600, 200);
-        buttonPlayAFriend.setFont(new Font("MV Boli", Font.BOLD, 35));
-        buttonPlayAFriend.setFocusable(false);
-        //buttonPlayAFriend.addActionListener(this);
-        buttonPlayAFriend.setText("Start A New Game!");
-
-        frame.setVisible(true);
-        frame.add(buttonPlayAFriend);
-    }
 
     public static void main(String[] args) {
         String ip = "127.0.0.1";
