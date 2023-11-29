@@ -12,14 +12,12 @@ public class Serverlistener { // Server som vi först stratar som lyssnar efter 
         try {
             while (true) {
                 Serversideplayer player1 = new Serversideplayer(listener.accept(), '1');
-                out.println("Spelare 1 har anslutit");
+                System.out.println("Spelare 1 har anslutit");
                 Serversideplayer player2 = new Serversideplayer(listener.accept(), '2');
-                out.println("Spelare 2 har anslutit");
+                System.out.println("Spelare 2 har anslutit");
                 Gamelogic game = new Gamelogic(player1, player2);
-                out.println("Välkommen");
+                System.out.println("Välkommen");
                 game.start();
-
-
             }
         } finally {
             listener.close();
