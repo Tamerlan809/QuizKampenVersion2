@@ -21,15 +21,20 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
 }
     // checkWin-metoden informerar vilken spelare som har högst poäng och skickar meddelanden till båda spelarna om resultat.
 public void checkWin(int player1Score, int player2Score){
+
+    String p1Score = " Your score: " + player1Score + "   Opponent score: " + player2Score;
+    String p2Score = " Your score: " + player2Score + "   Opponent score: " + player1Score;
     if (player1Score>player2Score){
-        player1.send("Swin");
-        player2.send("Slose");
+        player1.send("Swin!!" + p1Score);
+        System.out.println("Swin" + p1Score);
+        player2.send("Slose..." + p2Score);
     } else if (player2Score>player1Score){
-        player1.send("Slose");
-        player2.send("Swin");
+        player1.send("Slose..." + p1Score);
+        System.out.println("Slose" + p1Score);
+        player2.send("Swin!!" + p2Score);
     } else {
-        player1.send("Sequal");
-        player2.send("Sequal");
+        player1.send("Sequal" + p1Score);
+        player2.send("Sequal" + p2Score);
     }
 }
 
