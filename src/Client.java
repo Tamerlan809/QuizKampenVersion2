@@ -197,6 +197,7 @@ public class Client { // Clientarkitektur och GUI
             while (true){
                 if ((temp = in.readLine()) != null){
                     System.out.println(temp);
+                    forRecTestMsg.setText(temp);
                     frame.setContentPane(scorePanel());
                     scoreTextField.setText(temp);
                 }
