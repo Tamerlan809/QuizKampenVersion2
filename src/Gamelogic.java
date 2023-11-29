@@ -62,6 +62,10 @@ public void checkWin(int player1Score, int player2Score){
                 player1.send(qList[1]);
                 System.out.println(qList[1]);
                 player2.send(qList[1]);
+                countQ++;
+            } else {
+                System.out.println("check win");
+                checkWin(player1.getScore(), player2.getScore());
             }
 
 
@@ -82,7 +86,7 @@ public void checkWin(int player1Score, int player2Score){
             }
             System.out.println("player2 after calculation: " + player2.getScore());
 
-            checkWin(player1.getScore(), player2.getScore());
+
 
 //            player1.send("player1 testing testing");
 //            System.out.println("sent to player1 testing testing");
