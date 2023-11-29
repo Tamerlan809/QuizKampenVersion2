@@ -8,7 +8,7 @@ public class Serverlistener { // Server som vi först stratar som lyssnar efter 
     public static void main(String[] args) throws Exception {
         int port = 43972;
         ServerSocket listener = new ServerSocket(port);
-        out.println("Quizkampen");
+        System.out.println("Quizkampen");
         try {
             while (true) {
                 Serversideplayer player1 = new Serversideplayer(listener.accept(), '1');
