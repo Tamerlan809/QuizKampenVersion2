@@ -14,14 +14,14 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
 
 public void checkWin(int player1Score, int player2Score){
     if (player1Score>player2Score){
-        player1.send("win");
-        player2.send("lose");
+        player1.send("Swin");
+        player2.send("Slose");
     } else if (player2Score>player1Score){
-        player1.send("lose");
-        player2.send("win");
+        player1.send("Slose");
+        player2.send("Swin");
     } else {
-        player1.send("equal");
-        player2.send("equal");
+        player1.send("Sequal");
+        player2.send("Sequal");
     }
 }
 
@@ -32,6 +32,9 @@ public void checkWin(int player1Score, int player2Score){
         // Your game logic here
 
         while (true) {
+            player1.send("QHow are you?,Yes,No,Dont't know,n/a");
+            player2.send("QHow are you?,Yes,No,Dont't know,n/a");
+
             String dataFromPlayer1 = player1.receive();
             System.out.println("player1 " + dataFromPlayer1);
             if (dataFromPlayer1.equals("Correct")){

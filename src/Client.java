@@ -18,11 +18,11 @@ public class Client { // Clientarkitektur och GUI
     JFrame welcomeFrame = new JFrame();
     JTextField welcomeTextField = new JTextField("Hej och välkommen");
 
-    JTextField scoreTextField = new JTextField("Result: ");
-    JButton buttonAnswerA = new JButton("A:röd");
-    JButton buttonAnswerB = new JButton("B:grå");
-    JButton buttonAnswerC = new JButton("C;vit");
-    JButton buttonAnswerD = new JButton("D;blå");
+    JTextField scoreTextField = new JTextField();
+    JButton buttonAnswerA = new JButton();
+    JButton buttonAnswerB = new JButton();
+    JButton buttonAnswerC = new JButton();
+    JButton buttonAnswerD = new JButton();
 
     JTextField forRecTestMsg = new JTextField("testprinting...");
 
@@ -121,7 +121,7 @@ public class Client { // Clientarkitektur och GUI
         temp.add(buttonAnswerB);
         temp.add(buttonAnswerC);
         temp.add(buttonAnswerD);
-        temp.add(forRecTestMsg);
+//        temp.add(forRecTestMsg);
 
 
         buttonAnswerA.setBounds(0, 100, 500, 100);
@@ -149,7 +149,7 @@ public class Client { // Clientarkitektur och GUI
         forRecTestMsg.setEditable(false);
 
         question.setForeground(Color.black);
-        question.setText("Vilken färg har äpple?");
+//        question.setText("Vilken färg har äpple?");
         question.setSize(200, 200);
         question.setBounds(0, 0, 500, 100);
         question.setFont(new Font("MV Boli", Font.BOLD, 35));
@@ -196,12 +196,33 @@ public class Client { // Clientarkitektur och GUI
         try {
             while (true){
                 if ((temp2 = in.readLine()) != null){
-                    System.out.println(temp2);
-                    startNewGamePanel().setVisible(false);
-                    frame.setContentPane(scorePanel());
-                    scoreTextField.setText(temp2);
-                    frame.revalidate();
-                    frame.repaint();
+                    //question+answers  Q xxxxx
+                    //win/lose/equal    S  xxxx
+                    //if (temp2.charAT(0)==Q)
+                    //perform actions to display Q+A to question page
+                    if (temp2.charAt(0)=='Q'){  //Q stands for Question and Answer
+                        String[] indata = temp2.substring(1).split(",");
+//                        System.out.println(indata[0]);
+//                        System.out.println(indata[1]);
+//                        System.out.println(indata[2]);
+//                        System.out.println(indata[3]);
+//                        System.out.println(indata[4]);
+                        question.setText(indata[0]);
+                        buttonAnswerA.setText(indata[1]);
+                        buttonAnswerB.setText(indata[2]);
+                        buttonAnswerC.setText(indata[3]);
+                        buttonAnswerD.setText(indata[4]);
+                    }
+                    //else if (temp2.charAt(0)==S)
+                    //perform actions under to score page
+                    if (temp2.charAt(0)=='S'){ //S stands for score
+                        System.out.println(temp2);
+                        startNewGamePanel().setVisible(false);
+                        frame.setContentPane(scorePanel());
+                        scoreTextField.setText(temp2.substring(1));
+                        frame.revalidate();
+                        frame.repaint();
+                    }
                 }
             }
         } catch (IOException e) {
