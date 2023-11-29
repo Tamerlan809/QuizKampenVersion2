@@ -6,11 +6,12 @@ public class Gamelogic extends Thread { // I denna klass hanterar vi all logik i
 
     int countQ = 1;
 
+    // här deklareras en array av String
     String[] qList = new String[]{
             "QVad heter huvudstaden i Sverige?,Stockholm,London,Berlin,Kairo",
-            "QVilket land har flest invånare?,Kina,Indien,Pakistan,Ryssland"
+            "QVilket av dessa länder har flest invånare?,Kina,Indien,Pakistan,Ryssland"
     };
-
+    // konstruktorn ställer in och initierar viktiga attribut för spelet när en ny instans av Gamelogic skapas
 public Gamelogic(Serversideplayer player1, Serversideplayer player2){
     this.player1=player1;
     this.player2=player2;
@@ -18,7 +19,7 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
     this.player1.setOpponent(player2);
     this.player2.setOpponent(player1);
 }
-
+    // checkWin-metoden informerar vilken spelare som har högst poäng och skickar meddelanden till båda spelarna om resultat.
 public void checkWin(int player1Score, int player2Score){
     if (player1Score>player2Score){
         player1.send("Swin");
@@ -33,7 +34,7 @@ public void checkWin(int player1Score, int player2Score){
 }
 
 
-
+    //  sköter själva flödet av spelet genom att ställa frågor och kontrollera vem som vinner
     @Override
     public void run() {
 
