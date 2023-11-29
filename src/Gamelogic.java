@@ -20,13 +20,9 @@ public Gamelogic(Serversideplayer player1, Serversideplayer player2){
 }
 
 public void checkWin(int player1Score, int player2Score){
-    //Win
-    //You score: 2
-    //Opponent score: 0
 
-    //Win!! you score 2, opponent score 0
-    String p1Score = " you score " + player1Score + ", opponent score " + player2Score;
-    String p2Score = " you score " + player2Score + ", opponent score " + player1Score;
+    String p1Score = " Your score: " + player1Score + "   Opponent score: " + player2Score;
+    String p2Score = " Your score: " + player2Score + "   Opponent score: " + player1Score;
     if (player1Score>player2Score){
         player1.send("Swin!!" + p1Score);
         System.out.println("Swin" + p1Score);
