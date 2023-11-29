@@ -176,7 +176,7 @@ public class Client { // Clientarkitektur och GUI
                     }
 
                     if (temp2.charAt(0)=='S'){ //S stands for score
-                        System.out.println(temp2);
+                        System.out.println(temp2.substring(1));
                         startNewGamePanel().setVisible(false);
                         frame.setContentPane(scorePanel());
                         scoreTextField.setText(temp2.substring(1));
