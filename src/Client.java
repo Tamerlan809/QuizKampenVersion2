@@ -37,10 +37,13 @@ public class Client { // Clientarkitektur och GUI
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
 
-            welcomeFrame();
+
+            frame = frameTemplate();
+
+            frame.setContentPane(welcomePanel());
             //frame.setContentPane(welcomPanel)
             Thread.sleep(1500);
-            startANewGame();
+//            startANewGame();
             //frame.setContentPane(startNewGamePanel)
             //frame.revalidate()
 
@@ -51,14 +54,40 @@ public class Client { // Clientarkitektur och GUI
     }
     //// GUI.......
 
-    public void welcomeFrame() {
-        //welcomePanel
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 650);
-        frame.getContentPane().setBackground(new Color(50, 50, 50));
-        frame.setLayout(null);
-        frame.setResizable(false);
-        frame.setTitle("Quizkampen");
+
+    //main frame
+    //public JPanel welcomPanel
+    //frame.set(welcomePanel)
+    //public JPanel frågaPanel
+    //frame.remove(welcomePanel)
+    //frame.set(frågaPanel)
+    //frame.revalidate()
+
+    public JFrame frameTemplate(){
+        JFrame temp = new JFrame();
+        temp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        temp.setSize(800, 650);
+        temp.getContentPane().setBackground(new Color(50, 50, 50));
+        temp.setLayout(null);
+        temp.setResizable(false);
+        temp.setTitle("Quizkampen");
+
+        temp.setVisible(true);
+
+        return temp;
+    }
+
+    public JPanel welcomePanel() {
+        JPanel temp = new JPanel();
+        //retrun Jpanel welcomePanel
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(800, 650);
+//        frame.getContentPane().setBackground(new Color(50, 50, 50));
+//        frame.setLayout(null);
+//        frame.setResizable(false);
+//        frame.setTitle("Quizkampen");
+
+        temp.add(welcomeTextField);
 
         welcomeTextField.setBounds(0,0,650,50);
         welcomeTextField.setBackground(new Color(25,25,25));
@@ -68,8 +97,9 @@ public class Client { // Clientarkitektur och GUI
         welcomeTextField.setHorizontalAlignment(JTextField.CENTER);
         welcomeTextField.setEditable(false);
 
-        frame.setVisible(true);
-        frame.add(welcomeTextField);
+//        frame.setVisible(true);
+
+        return temp;
     }
 
     public void startANewGame() {
