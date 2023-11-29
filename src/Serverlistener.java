@@ -7,8 +7,7 @@ public class Serverlistener { // Server som vi först stratar som lyssnar efter 
 
     public static void main(String[] args) throws Exception {
         int port = 43972;
-        InetAddress ipAdress = InetAddress.getByName("127.0.0.1");
-        ServerSocket listener = new ServerSocket(port, 2, ipAdress);
+        ServerSocket listener = new ServerSocket(port);
         out.println("Quizkampen");
         try {
             while (true) {
