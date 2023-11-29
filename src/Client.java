@@ -192,14 +192,16 @@ public class Client { // Clientarkitektur och GUI
     }
 
     public void play(){
-        String temp;
+        String temp2;
         try {
             while (true){
-                if ((temp = in.readLine()) != null){
-                    System.out.println(temp);
-                    forRecTestMsg.setText(temp);
+                if ((temp2 = in.readLine()) != null){
+                    System.out.println(temp2);
+                    startNewGamePanel().setVisible(false);
                     frame.setContentPane(scorePanel());
-                    scoreTextField.setText(temp);
+                    scoreTextField.setText(temp2);
+                    frame.revalidate();
+                    frame.repaint();
                 }
             }
         } catch (IOException e) {
