@@ -17,6 +17,8 @@ public class Client { // Clientarkitektur och GUI
     JLabel question = new JLabel();
     JFrame welcomeFrame = new JFrame();
     JTextField welcomeTextField = new JTextField("Hej och välkommen");
+
+    JTextField scoreTextField = new JTextField("Result: ");
     JButton buttonAnswerA = new JButton("A:röd");
     JButton buttonAnswerB = new JButton("B:grå");
     JButton buttonAnswerC = new JButton("C;vit");
@@ -173,13 +175,30 @@ public class Client { // Clientarkitektur och GUI
 
     }
 
+    public JPanel scorePanel() {
+        JPanel temp = new JPanel();
+
+        temp.add(scoreTextField);
+
+        scoreTextField.setBounds(0,0,650,50);
+        scoreTextField.setBackground(new Color(25,25,25));
+        scoreTextField.setForeground(new Color(25,255,0));
+        scoreTextField.setFont(new Font("Ink Free",Font.BOLD,30));
+        scoreTextField.setBorder(BorderFactory.createBevelBorder(1));
+        scoreTextField.setHorizontalAlignment(JTextField.CENTER);
+        scoreTextField.setEditable(false);
+
+        return temp;
+    }
+
     public void play(){
         String temp;
         try {
             while (true){
                 if ((temp = in.readLine()) != null){
                     System.out.println(temp);
-                    forRecTestMsg.setText(temp);
+                    frame.setContentPane(scorePanel());
+                    scoreTextField.setText(temp);
                 }
             }
         } catch (IOException e) {
