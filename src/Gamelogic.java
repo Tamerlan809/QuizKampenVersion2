@@ -4,6 +4,13 @@ public class Gamelogic extends Thread { // I denna klass hanterar vi all logik i
     Serversideplayer player2;
     Serversideplayer currentPlayer;
 
+    int countQ = 1;
+
+    String[] qList = new String[]{
+            "QHow are you?,Yes,No,Dont't know,n/a",
+            "QWhat's today's date?29,30,21,56"
+    };
+
 public Gamelogic(Serversideplayer player1, Serversideplayer player2){
     this.player1=player1;
     this.player2=player2;
@@ -31,9 +38,33 @@ public void checkWin(int player1Score, int player2Score){
     public void run() {
         // Your game logic here
 
+        //int counter
+        //if counter=1
+        //send(questionList[0])
+        //counter++;
+
+        //if counter=2
+        //send(questionList[1])
+        //counter++;
+
+        //String[] quesationList = index0 Q1, index1 Q2, index ....
+
         while (true) {
-            player1.send("QHow are you?,Yes,No,Dont't know,n/a");
-            player2.send("QHow are you?,Yes,No,Dont't know,n/a");
+//            player1.send("QHow are you?,Yes,No,Dont't know,n/a");
+//            player2.send("QHow are you?,Yes,No,Dont't know,n/a");
+
+            if (countQ==1){
+                player1.send(qList[0]);
+                System.out.println(qList[0]);
+                player2.send(qList[0]);
+                countQ++;
+            } else if (countQ==2){
+                player1.send(qList[1]);
+                System.out.println(qList[1]);
+                player2.send(qList[1]);
+                countQ++;
+            }
+
 
             String dataFromPlayer1 = player1.receive();
             System.out.println("player1 " + dataFromPlayer1);
