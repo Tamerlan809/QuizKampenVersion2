@@ -41,11 +41,10 @@ public class Client { // Clientarkitektur och GUI
             frame = frameTemplate();
 
             frame.setContentPane(welcomePanel());
-            //frame.setContentPane(welcomPanel)
             Thread.sleep(1500);
-//            startANewGame();
-            //frame.setContentPane(startNewGamePanel)
-            //frame.revalidate()
+            welcomePanel().setVisible(false);
+            frame.setContentPane(startNewGamePanel());
+            frame.revalidate();
 
         } catch (IOException | InterruptedException e){
             e.printStackTrace();
@@ -102,15 +101,25 @@ public class Client { // Clientarkitektur och GUI
         return temp;
     }
 
-    public void startANewGame() {
+    public JPanel startNewGamePanel() {
+        JPanel temp = new JPanel();
+        temp.setLayout(new GridLayout(6,1));
         //startNewGamePanel
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 650);
-        frame.getContentPane().setBackground(new Color(50, 50, 50));
-        frame.setLayout(null);
-        frame.setResizable(false);
-        frame.setTitle("Quizkampen");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(800, 650);
+//        frame.getContentPane().setBackground(new Color(50, 50, 50));
+//        frame.setLayout(null);
+//        frame.setResizable(false);
+//        frame.setTitle("Quizkampen");
 
+//        frame.setVisible(true);
+
+        temp.add(question);
+        temp.add(buttonAnswerA);
+        temp.add(buttonAnswerB);
+        temp.add(buttonAnswerC);
+        temp.add(buttonAnswerD);
+        temp.add(forRecTestMsg);
 
 
         buttonAnswerA.setBounds(0, 100, 500, 100);
@@ -137,20 +146,11 @@ public class Client { // Clientarkitektur och GUI
         forRecTestMsg.setHorizontalAlignment(JTextField.CENTER);
         forRecTestMsg.setEditable(false);
 
-        question.setForeground(Color.white);
+        question.setForeground(Color.black);
         question.setText("Vilken färg har äpple?");
         question.setSize(200, 200);
         question.setBounds(0, 0, 500, 100);
         question.setFont(new Font("MV Boli", Font.BOLD, 35));
-        frame.add(question);
-
-
-        frame.setVisible(true);
-        frame.add(buttonAnswerA);
-        frame.add(buttonAnswerB);
-        frame.add(buttonAnswerC);
-        frame.add(buttonAnswerD);
-        frame.add(forRecTestMsg);
 
         buttonAnswerA.addActionListener(e -> {
 
@@ -168,6 +168,8 @@ public class Client { // Clientarkitektur och GUI
         buttonAnswerB.addActionListener(incorrectAnswerListener);
         buttonAnswerC.addActionListener(incorrectAnswerListener);
         buttonAnswerD.addActionListener(incorrectAnswerListener);
+
+        return temp;
 
     }
 
